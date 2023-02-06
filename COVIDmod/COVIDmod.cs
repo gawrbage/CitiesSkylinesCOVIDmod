@@ -42,6 +42,8 @@ namespace COVIDmod
         public void OnEnabled()
         {
             HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
+            ResidentAISimulationStepPatch.keepDying = ModSettings.ModEnabled;
+            ResidentAISimulationStepPatch.dieRate = ModSettings.DieRate;
         }
 
         public void OnDisabled()
